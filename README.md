@@ -3,7 +3,7 @@ Project Mata Kuliah Eksplorasi dan Visualisasi Data
 
 ## :scroll: Tentang
 
-Proyek ini merupakan bagian dari tugas matakuliah eksplorasi dan visualisasi data yang bertujuan untuk memberikan pemahaman yang lebih baik tentang hubungan antara dua variabel dengan menggunakan scatter plot dan menganalisis korelasinya. Dashboard interaktif ini dikembangkan menggunakan Shiny R, sebuah framework web untuk membuat aplikasi interaktif dengan menggunakan R.
+Proyek ini merupakan bagian dari tugas mata kuliah eksplorasi dan visualisasi data yang bertujuan untuk memberikan pemahaman yang lebih baik tentang hubungan antara dua variabel dengan menggunakan plot pencar dan menganalisis korelasinya. Dashboard interaktif ini dikembangkan menggunakan Shiny R, sebuah framework web untuk membuat aplikasi interaktif dengan menggunakan R.
 
 ## :rice_scene: Screenshot
 
@@ -18,20 +18,15 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 
 ## :bookmark_tabs: Fitur Utama
 
-Scatter Plot Interaktif:
+- Data: pengguna dapat memilih data yang kami sediakan atau memasukkan sendiri data yang akan digunakan
+- Variabel bebas dan variabel dependen yang digunakan untuk membuat diagram pencar
+- Korelasi Statistik: ada tiga opsi korelasi yang bisa dipilih, yaitu Pearson, Spearman, dan Kendall's Tau
+- Tren data: ada dua jenis trend data, yaitu tren pemulusan (_smoothing_) dan tren lurus (linear)
+- Opsi untuk mengubah atau menambah data
+- Opsi mengganti judul dan subjudul
 
-Pengguna dapat memilih dua variabel yang ingin diplot pada sumbu x dan y.
-Pilihan warna dan ukuran titik dapat disesuaikan untuk meningkatkan pemahaman visual.
-Tabel Korelasi:
-
-Tabel korelasi akan memberikan nilai korelasi antara dua variabel yang dipilih.
-Warna sel pada tabel mencerminkan kekuatan dan arah korelasi.
-Pilihan Variabel:
-
-Pengguna dapat memilih variabel-variabel yang ingin diamati dari dataset yang disediakan.
-Filter Data:
-
-Fasilitas filter memungkinkan pengguna untuk menyaring data berdasarkan kriteria tertentu untuk menganalisis korelasi pada subgrup data.
-
-
+## :bookmark_tabs: Tampilan
+- Deskripsi data yang meliputi: nama variabel, jumlah data, rata-rata, deviasi standar, nilai terkecil, Q1, median, Q3, nilai terbesar, IQR
+- Plot pencar dengan tren data yang dipilih oleh pengguna
+- Tabel statistik untuk mengukur hubungan variabel bebas dan variabel dependen dengan jenis korelasi statistik sesuai pilihan pengguna (Pearson, Spearman, dan Kendall's Tau)
 
