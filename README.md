@@ -16,7 +16,8 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 | ------------------------ |
 | nanti diisi |
 
-Fitur Utama
+## :bookmark_tabs: Fitur Utama
+
 Scatter Plot Interaktif:
 
 Pengguna dapat memilih dua variabel yang ingin diplot pada sumbu x dan y.
