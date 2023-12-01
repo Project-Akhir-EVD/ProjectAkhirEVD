@@ -29,6 +29,16 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 
 ## :bookmark_tabs: _Main_
 
-- Deskripsi data yang meliputi: nama variabel, jumlah, rata-rata, deviasi standar, nilai terkecil, Q1, median, Q3, nilai terbesar, dan IQR.
+- Deskripsi data yang meliputi: 
+    - nama variabel, 
+    - jumlah, 
+    - rata-rata, 
+    - deviasi standar, 
+    - nilai terkecil, 
+    - Q1, 
+    - median, 
+    - Q3, 
+    - nilai terbesar dan  
+    - IQR.
 - Diagram pencar disertai garis tren yang dipilih pengguna.
 - Tabel yang menampilkan statistik untuk mengukur hubungan variabel bebas (_X_) dan variabel dependen (_Y_) dengan jenis korelasi statistik sesuai pilihan pengguna.
