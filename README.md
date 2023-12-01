@@ -3,7 +3,7 @@ Project Mata Kuliah Eksplorasi dan Visualisasi Data
 
 ## :scroll: Tentang
 
-Proyek ini merupakan bagian dari tugas matakuliah eksplorasi dan visualisasi data yang bertujuan untuk memberikan pemahaman yang lebih baik tentang hubungan antara dua variabel dengan menggunakan scatter plot dan menganalisis korelasinya. Dashboard interaktif ini dikembangkan menggunakan Shiny R, sebuah framework web untuk membuat aplikasi interaktif dengan menggunakan R.
+Proyek ini merupakan bagian dari tugas mata kuliah Eksplorasi dan Visualisasi Data yang bertujuan untuk memberikan pemahaman yang lebih baik tentang hubungan antara dua variabel dengan menggunakan diagram pencar (_scatter plot_) dan menganalisis korelasinya. Dashboard interaktif ini dikembangkan menggunakan **Shiny R**, sebuah framework web untuk membuat aplikasi interaktif dengan menggunakan **R**.
 
 ## :rice_scene: Screenshot
 
@@ -16,22 +16,19 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 | ------------------------ |
 | nanti diisi |
 
-## :bookmark_tabs: Fitur Utama
+## :bookmark_tabs: _Side Bar_
 
-Scatter Plot Interaktif:
+- Input data: pengguna bisa menggunakan data sendiri ataupun data yang sudah disediakan.
+- Pengguna dapat memilih variabel bebas (_X_) dan variabel dependen (_Y_) untuk diagram pencar.
+- Penguna bisa memilih korelasi statistik yang akan ditampilkan diantara tiga pilihan, yaitu korelasi _Pearson_, _Spearman_, dan _Kendall Tau_.
+- Tren penghalusan (_smooth trend_)
+- Trend lurus (linear)
+- Standarisasi data
+- Mengubah atau menghapus data
+- Mengganti judul dan subjudul
 
-Pengguna dapat memilih dua variabel yang ingin diplot pada sumbu x dan y.
-Pilihan warna dan ukuran titik dapat disesuaikan untuk meningkatkan pemahaman visual.
-Tabel Korelasi:
+## :bookmark_tabs: _Main_
 
-Tabel korelasi akan memberikan nilai korelasi antara dua variabel yang dipilih.
-Warna sel pada tabel mencerminkan kekuatan dan arah korelasi.
-Pilihan Variabel:
-
-Pengguna dapat memilih variabel-variabel yang ingin diamati dari dataset yang disediakan.
-Filter Data:
-
-Fasilitas filter memungkinkan pengguna untuk menyaring data berdasarkan kriteria tertentu untuk menganalisis korelasi pada subgrup data.
-
-
-
+- Deskripsi data yang meliputi: nama variabel, jumlah, rata-rata, deviasi standar, nilai terkecil, Q1, median, Q3, nilai terbesar, dan IQR.
+- Diagram pencar disertai garis tren yang dipilih pengguna.
+- Tabel yang menampilkan statistik untuk mengukur hubungan variabel bebas (_X_) dan variabel dependen (_Y_) dengan jenis korelasi statistik sesuai pilihan pengguna.
