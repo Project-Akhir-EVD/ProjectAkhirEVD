@@ -2,7 +2,7 @@
 Project Mata Kuliah Eksplorasi dan Visualisasi Data STA1563
 ## Kelompok 6
 
-### Tim Pengambang:
+### Tim Pengembang:
 - `Tahira Fulazzaky` `(G1501221024)`
 - `Setyo Wahyudi` `(G1501222046)`
 - `Bayu Paramita` `(G1501222052)`
@@ -33,14 +33,12 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 ## :bookmark_tabs: _Main_
 
 - Deskripsi data yang meliputi: 
-    - nama variabel, 
+    - nama peubah, 
     - jumlah, 
     - rata-rata, 
-    - deviasi standar, 
+    - ragam, 
     - nilai terkecil, 
-    - Q1, 
-    - median, 
-    - Q3, 
-    - nilai terbesar dan  
+    - median, dan
+    - nilai terbesar
 - Diagram pencar disertai garis tren yang dipilih pengguna.
 - Tabel yang menampilkan statistik untuk mengukur hubungan variabel bebas (_X_) dan variabel dependen (_Y_) dengan jenis korelasi statistik sesuai pilihan pengguna.
