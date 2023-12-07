@@ -23,9 +23,6 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 - Penguna bisa memilih korelasi statistik yang akan ditampilkan diantara tiga pilihan, yaitu korelasi _Pearson_, _Spearman_, dan _Kendall Tau_.
 - Tren penghalusan (_smooth trend_)
 - Trend lurus (linear)
-- Standarisasi data
-- Mengubah atau menghapus data
-- Mengganti judul dan subjudul
 
 ## :bookmark_tabs: _Main_
 
@@ -39,6 +36,5 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
     - median, 
     - Q3, 
     - nilai terbesar dan  
-    - IQR.
 - Diagram pencar disertai garis tren yang dipilih pengguna.
 - Tabel yang menampilkan statistik untuk mengukur hubungan variabel bebas (_X_) dan variabel dependen (_Y_) dengan jenis korelasi statistik sesuai pilihan pengguna.
