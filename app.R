@@ -89,20 +89,21 @@ server <- function(input, output){
            "pressure" = pressure)
   })
   
+  filedata <- reactive({
+    inFile <- input$pilih_file
+    ext <- tools::file_ext(inFile$datapath)
+    req(inFile)
+    validate(need(ext == "csv", "Silakan upload csv file"))
+    readData <- read.csv(inFile$datapath, header = TRUE)
+    readData
+  })
+  
   myData <- reactive({
     req(input$data)
     if(input$data == "Data Disediakan"){
       return(as.data.frame(chosendata()))
     }
     else if(input$data == "Input Mandiri"){
-      filedata <- reactive({
-        inFile <- input$pilih_file
-        ext <- tools::file_ext(inFile$datapath)
-        req(inFile)
-        validate(need(ext == "csv", "Silakan upload csv file"))
-        readData <- read.csv(inFile$datapath, header = TRUE)
-        readData
-      })
       return(as.data.frame(filedata()))
     }
   })
