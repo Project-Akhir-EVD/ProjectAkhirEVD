@@ -1,5 +1,11 @@
-# ProjectAkhirEVD
-Project Mata Kuliah Eksplorasi dan Visualisasi Data
+# Project Akhir EVD
+Project Mata Kuliah Eksplorasi dan Visualisasi Data STA1563
+## Kelompok 6
+
+### Disusun Oleh:
+- `Tahira Fulazzaky` `(G1501221024)`
+- `Setyo Wahyudi` `(G1501222046)`
+- `Bayu Paramita` `(G1501222052)`
 
 ## :scroll: Tentang
 
