@@ -148,7 +148,7 @@ createRegressionPlot <- function(data, var_x, var_y, lab_x, lab_y, show_reg_line
   p <- ggplot(data, aes_string(x = var_x, y = var_y)) + 
     xlab(lab_x) + 
     ylab(lab_y) +
-    geom_point(shape=bentuk, fill=col_dot, color="black") + 
+    geom_point(shape=bentuk, fill=col_dot, color=col_dot) + 
     theme_minimal() + 
     labs(title = judul)
   if (show_reg_line) {
