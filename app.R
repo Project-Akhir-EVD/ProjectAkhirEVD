@@ -8,13 +8,15 @@ library(rhandsontable)
 library(data.table)
 library(googleVis)
 library(ggplot2)
-library(plotly)  # Ensure plotly library is loaded
+library(plotly)
+library(shinyjs)
+library(colourpicker)
 
 ui <- shinyUI(
   navbarPage(
     title = "Plot Pencar dan Korelasi",
     tabPanel(
-      title = "Plot Pencar dan Korelasi",
+      title = "Summary",
       sidebarLayout(
         sidebarPanel(
           fluidRow(
@@ -43,44 +45,125 @@ ui <- shinyUI(
             column(6, uiOutput('dv'))
           ),
           selectInput(inputId = "korelasi", "Korelasi Statistik", choices = c("Korelasi Pearson", "Korelasi Spearman", "Kendalls Tau")),
-          checkboxInput(inputId = "smooth", label = "Tren Pemulusan"),
-          checkboxInput(inputId = "linear", label = "Tren Lurus/Linear"),
-          checkboxInput(inputId = "pindah", label = "Memindahkan Data"),
-          checkboxInput(inputId = "hapus", label = "Menghapus Data"),
-          checkboxInput(inputId = "edit", label = "Mengubah Judul")
+          fluidRow(
+            column(6, checkboxInput(inputId = "linear", label = "Tren Lurus/Linear")), 
+            column(6, checkboxInput(inputId = "smooth", label = "Tren Pemulusan"))
+          ),
+          fluidRow(
+            column(6, selectInput(inputId = "bentuk", label = "Pilih Bentuk Plot Pencar",
+                                  choices = c("persegi", "lingkaran", "segitiga", "belah ketupat"))
+            )),
+          tags$b("Pilih Warna:"),
+          fluidRow(
+            column(width = 4, colourInput("col_dot", "Plot Pencar", "black", showColour = "background")),
+            column(width = 4, colourInput("col_ln", "Tren Linear", "blue", showColour = "background")),
+            column(width = 4, colourInput("col_smt", "Tren Pemulusan", "red", showColour = "background"))
+          ),
+          textInput("judul", strong("Masukkan Judul"), "Plot Pencar")
         ),
         mainPanel(
+          fluidRow(
+            h3("Deskripsi Data")
+          ),
           fluidRow(
             tableOutput(outputId = "summary")
           ),
           fluidRow(
-            plotlyOutput(outputId = "scatter")  # Use plotlyOutput for plotly
+            h3("Plot Pencar")
+          ),
+          fluidRow(
+            plotlyOutput(outputId = "scatter")
+          ),
+          fluidRow(
+            h3("Korelasi Statistik")
           ),
           fluidRow(
             tableOutput(outputId = "korelasi.statistik")
           )
         )
       )
-    ),
+    )
+    ,
     tabPanel(
-      title = "Tentang"
+      title = "Informasi",
+      
+      # Pilih Data
+      conditionalPanel(
+        condition = "input.data == 'Input Mandiri'",
+        includeMarkdown("Inf/pilihdata.md")
+      ),
+      # Pilih Data
+      conditionalPanel(
+        condition = "input.data == 'Data Disediakan'",
+        includeMarkdown("Inf/pilihdata.md")
+      ),
+      # Dataset Cars
+      conditionalPanel(
+        condition = "input.pilih_dataset == 'cars'",
+        includeMarkdown("Inf/mtcars.md")
+      ),
+      # Dataset Women
+      conditionalPanel(
+        condition = "input.pilih_dataset == 'women'",
+        includeMarkdown("Inf/women.md")
+      ),
+      # Dataset Rock
+      conditionalPanel(
+        condition = "input.pilih_dataset == 'rock'",
+        includeMarkdown("Inf/rock.md")
+      ),
+      # Dataset Pressure
+      conditionalPanel(
+        condition = "input.pilih_dataset == 'pressure'",
+        includeMarkdown("Inf/pressure.md")
+      ),
+      # Dataset Korelasi Pearson
+      conditionalPanel(
+        condition = "input.korelasi == 'Korelasi Pearson'",
+        includeMarkdown("Inf/pearson.md")
+      ),
+      # Dataset Korelasi Spearmen
+      conditionalPanel(
+        condition = "input.korelasi == 'Korelasi Spearman'",
+        includeMarkdown("Inf/spearman.md")
+        #        tags$figure(
+        #          tags$img(
+        #            src = "Inf/spearman.png",
+        #            width = 600
+        #            )
+        #          )
+      ),
+      # Dataset Korelasi Spearmen
+      conditionalPanel(
+        condition = "input.korelasi == 'Kendalls Tau'",
+        includeMarkdown("Inf/taukendalls.md")
+      )
     )
   )
 )
 
-createRegressionPlot <- function(data, x_var, y_var, show_reg_line, show_smooth_line, smoothness = 0.5) {
-  lm_model <- lm(formula = paste(y_var, "~", x_var), data = data)
-  p <- ggplot(data, aes_string(x = x_var, y = y_var)) + geom_point() + theme_minimal()
+
+createRegressionPlot <- function(data, var_x, var_y, lab_x, lab_y, show_reg_line, show_smooth_line, smoothness = 0.5, judul=NULL, bentuk=16, col_dot="black", col_ln="blue", col_smt="red") {
+  lm_model <- lm(formula = paste(var_y, "~", var_x), data = data)
+  p <- ggplot(data, aes_string(x = var_x, y = var_y)) + 
+    xlab(lab_x) + 
+    ylab(lab_y) +
+    geom_point(shape=bentuk, fill=col_dot, color="black") + 
+    theme_minimal() + 
+    labs(title = judul)
   if (show_reg_line) {
-    p <- p + geom_smooth(method = "lm", se = FALSE, color = "#5959b8")
+    p <- p + geom_smooth(method = "lm", se = FALSE, color = col_ln)
   }
   if (show_smooth_line) {
-    p <- p + geom_smooth(method = "loess", se = FALSE, color = "#92fb51", span = smoothness)
+    p <- p + geom_smooth(method = "loess", se = FALSE, color = col_smt, span = smoothness)
   }
   return(p)
 }
 
+
 server <- function(input, output){
+  options(shiny.maxRequestSize=1*1024^2) 
+  
   chosendata <- reactive({
     switch(input$pilih_dataset,
            "cars" = mtcars,
@@ -149,13 +232,25 @@ server <- function(input, output){
     }
   })
   
+  bentuk <- reactive({
+    switch(input$bentuk,
+           "persegi" = 15,
+           "lingkaran" = 16, 
+           "segitiga" = 17,
+           "belah ketupat" = 18)
+  })
+  
   output$scatter <- renderPlotly({
     if (!is.null(input$iv) && !is.null(input$dv) && is.numeric(myData()[, input$iv]) && is.numeric(myData()[, input$dv])) {
       x <- myData()[, input$iv]
       y <- myData()[, input$dv]
+      a <- input$col_dot 
+      b <- input$col_ln
+      c <- input$col_smt
+      titel <- input$judul
+      bentuk <- bentuk()
       dataa <- data.frame(x = x, y = y)
-      
-      ggplotly(createRegressionPlot(data = dataa, x_var = "x", y_var = "y", show_reg_line = input$linear, show_smooth_line = input$smooth))
+      ggplotly(createRegressionPlot(data = dataa, var_x = "x", var_y = "y", lab_x = input$iv, lab_y = input$dv, show_reg_line = input$linear, show_smooth_line = input$smooth, judul=titel, bentuk=bentuk, col_dot=a, col_ln=b, col_smt=c))
     }
   })
 }
