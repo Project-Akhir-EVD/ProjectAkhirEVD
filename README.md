@@ -20,7 +20,7 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 
 | url                      |
 | ------------------------ |
-| nanti diisi |
+| https://mds6.shinyapps.io/Scatter_Plot_Correlation/ |
 
 ## :bookmark_tabs: _Side Bar_
 
