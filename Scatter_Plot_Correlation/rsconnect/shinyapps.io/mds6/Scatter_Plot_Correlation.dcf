@@ -1,0 +1,12 @@
+name: Scatter_Plot_Correlation
+title: Scatter_Plot_Correlation
+username: mds6
+account: mds6
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10769479
+bundleId: 8033560
+url: https://mds6.shinyapps.io/Scatter_Plot_Correlation/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
