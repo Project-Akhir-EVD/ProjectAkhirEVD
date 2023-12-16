@@ -9,7 +9,7 @@ Project Mata Kuliah Eksplorasi dan Visualisasi Data STA1563
 
 ## :scroll: Tentang
 
-Proyek ini merupakan bagian dari tugas mata kuliah Eksplorasi dan Visualisasi Data yang bertujuan untuk memberikan pemahaman yang lebih baik tentang hubungan antara dua variabel dengan menggunakan diagram pencar (_scatter plot_) dan menganalisis korelasinya. Dashboard interaktif ini dikembangkan menggunakan **Shiny R**, sebuah framework web untuk membuat aplikasi interaktif dengan menggunakan **R**.
+Aplikasi ini merupakan bagian dari tugas mata kuliah Eksplorasi dan Visualisasi Data yang bertujuan untuk memberikan pemahaman yang lebih baik tentang hubungan antara dua variabel dengan menggunakan diagram pencar (_scatter plot_) dan menganalisis korelasinya. Dashboard interaktif ini dikembangkan menggunakan **Shiny R**, sebuah framework web untuk membuat aplikasi interaktif dengan menggunakan **R**.
 
 ## :rice_scene: Screenshot
 
@@ -33,12 +33,12 @@ Berikut merupakan tautan untuk mendemokan aplikasi ShinyApp
 ## :bookmark_tabs: _Main_
 
 - Deskripsi data yang meliputi: 
-    - nama peubah, 
-    - jumlah, 
-    - rata-rata, 
-    - ragam, 
-    - nilai terkecil, 
-    - median, dan
-    - nilai terbesar
-- Diagram pencar disertai garis tren yang dipilih pengguna.
+    - Nama Peubah 
+    - Jumlah Amatan 
+    - Rata-rata 
+    - Ragam, 
+    - Nilai Terkecil 
+    - Median
+    - Nilai Terbesar
+- Diagram pencar disertai garis tren dan juga dilengkapi dengan beberapa pilihan warna yang dapat dipilih sesuai dengan keinginan pengguna.
 - Tabel yang menampilkan statistik untuk mengukur hubungan variabel bebas (_X_) dan variabel dependen (_Y_) dengan jenis korelasi statistik sesuai pilihan pengguna.
